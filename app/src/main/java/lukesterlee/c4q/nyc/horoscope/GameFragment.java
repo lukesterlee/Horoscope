@@ -7,21 +7,21 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 /**
  * Created by Willee on 5/7/15.
  */
 public class GameFragment extends Fragment {
 
-    View result;
 
-    @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        result = inflater.inflate(R.layout.fragment_game, container, false);
+        View result = inflater.inflate(R.layout.fragment_game, container, false);
 
-        Button button = (Button) result.findViewById()
+        TextView randomDate = (TextView) result.findViewById(R.id.randomDate);
+        randomDate.setText(SignCalculator.getRandomDate());
 
         return result;
     }
