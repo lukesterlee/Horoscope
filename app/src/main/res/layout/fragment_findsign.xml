@@ -34,4 +34,11 @@
         android:id="@+id/myDate"
         android:layout_gravity="center_horizontal" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="read more"
+        android:id="@+id/read_more_sign_button"
+        android:layout_gravity="center_horizontal" />
+
 </LinearLayout>

@@ -1,19 +1,23 @@
 package lukesterlee.c4q.nyc.horoscope;
 
 import android.app.Activity;
+import android.app.Fragment;
 import android.app.ListFragment;
 import android.os.Bundle;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.GridView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 /**
  * Created by Willee on 5/7/15.
  */
-public class SignFragment extends ListFragment {
+public class SignFragment extends Fragment {
 
     OnSignSelectedListener mActivityCallBack;
 
@@ -25,17 +29,14 @@ public class SignFragment extends ListFragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, Data.signs);
-        setListAdapter(adapter);
-
     }
-
 
 
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
+
+        ((MainActivity) activity).onSectionAttached(getArguments().getInt("position"));
 
         try {
             mActivityCallBack = (OnSignSelectedListener) activity;
@@ -46,8 +47,22 @@ public class SignFragment extends ListFragment {
 
 
     @Override
-    public void onListItemClick(ListView l, View v, int position, long id) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        mActivityCallBack.onSignSelected(position);
+        View result = inflater.inflate(R.layout.fragment_sign, container, false);
+        GridView gridview = (GridView) result.findViewById(R.id.gridView);
+        gridview.setAdapter(new ImageAdapter(getActivity()));
+
+
+        gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+                mActivityCallBack.onSignSelected(position);
+            }
+        });
+
+        return result;
     }
+
+
 }

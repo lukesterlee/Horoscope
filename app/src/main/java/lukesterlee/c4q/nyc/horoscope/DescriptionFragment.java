@@ -1,5 +1,6 @@
 package lukesterlee.c4q.nyc.horoscope;
 
+import android.app.Activity;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -52,5 +53,10 @@ public class DescriptionFragment extends Fragment {
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putInt(POSITION, mCurrentPosition);
+    }
+
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
     }
 }

@@ -2,12 +2,22 @@ package lukesterlee.c4q.nyc.horoscope;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.HashMap;
 import java.util.Random;
 
 /**
  * Created by Luke on 5/8/2015.
  */
 public class SignCalculator {
+
+
+
+    public static String doWeMatch(String mySign, String yourSign) {
+        if (mySign.equalsIgnoreCase("leo")) {
+
+        }
+        return "";
+    }
 
 
 
@@ -49,11 +59,37 @@ public class SignCalculator {
         int month = date.get(Calendar.MONTH);
         int day = date.get(Calendar.DAY_OF_MONTH);
 
+        //String sign = getSign(month+1, day);
+
         result += Data.month[month];
         result += " " + day;
+
+
 
         return result;
     }
 
+
+    public static String getAnswer(String date) {
+        String[] monthDay = date.split(" ");
+
+        HashMap<String, Integer> month = new HashMap<String, Integer>();
+        month.put("January", 1);
+        month.put("February", 2);
+        month.put("March", 3);
+        month.put("April", 4);
+        month.put("May", 5);
+        month.put("June", 6);
+        month.put("July", 7);
+        month.put("August", 8);
+        month.put("September", 9);
+        month.put("October", 10);
+        month.put("November", 11);
+        month.put("December", 12);
+
+        int m = month.get(monthDay[0]);
+        int day = Integer.parseInt(monthDay[1]);
+        return getSign(m, day);
+    }
 
 }

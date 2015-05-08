@@ -11,4 +11,6 @@
     <string name="action_example">Example action</string>
 
     <string name="action_settings">Settings</string>
+
+    <color name="white">#FFFFFF</color>
 </resources>
