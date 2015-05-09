@@ -65,13 +65,6 @@ public class GameFragment extends Fragment {
                 gridview = (GridView) getActivity().findViewById(R.id.game_grid_view);
                 gridview.setAdapter(new ImageAdapter(getActivity()));
 
-                gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                    @Override
-                    public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-                        Toast toast = Toast.makeText(getActivity(), "Wrong!", Toast.LENGTH_SHORT);
-                        toast.show();
-                    }
-                });
                 timer = new CountDownTimer(10000, 1000) {
                     @Override
                     public void onTick(long millisUntilFinished) {
@@ -86,6 +79,26 @@ public class GameFragment extends Fragment {
                         startButton.setText("One more?");
                     }
                 }.start();
+
+                gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+                        if(SignCalculator.getSign(position).equalsIgnoreCase(SignCalculator.getAnswer(date))) {
+                            timer.cancel();
+                            remainingTime.setText("");
+                            // show pop up dialog to congratualte!
+                            Toast toast = Toast.makeText(getActivity(), "Awesome! You got right!", Toast.LENGTH_LONG);
+                            toast.show();
+                            startButton.setText("One more?");
+                        }
+                        else {
+                            //Toast toast = Toast.makeText(getActivity(), "Wrong!", Toast.LENGTH_SHORT);
+                            //toast.show();
+                        }
+
+                    }
+                });
+
             }
         });
     }

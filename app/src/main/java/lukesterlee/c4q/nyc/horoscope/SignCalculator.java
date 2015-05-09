@@ -91,15 +91,40 @@ public class SignCalculator {
         return getSign(m, day);
     }
 
-    public static int getSignPosition(String sign) {
+    public static String getSign(int position) {
 
-        String[] s = {"Aries", "Taurus", "Gemini", "Cancer", "Leo", "Virgo",
-                "Libra", "Scorpio", "Sagittarius", "Capricorn", "Aquarius", "Pisces"};
+        HashMap<Integer, String> signs = new HashMap<Integer, String>();
+        signs.put(0, "Aries");
+        signs.put(1, "Taurus");
+        signs.put(2, "Gemini");
+        signs.put(3, "Cancer");
+        signs.put(4, "Leo");
+        signs.put(5, "Virgo");
+        signs.put(6, "Libra");
+        signs.put(7, "Scorpio");
+        signs.put(8, "Sagittarius");
+        signs.put(9, "Capricorn");
+        signs.put(10, "Aquarius");
+        signs.put(11, "Pisces");
+        return signs.get(position);
+    }
 
-        HashMap<String, Integer> signs = new HashMap<String, Integer>();
-        signs.put("Aries", 0);
-        signs.put("Taurus", 1);
-        return 0;
+    public static int getPosition(String sign) {
+
+        HashMap<Integer, String> signs = new HashMap<Integer, String>();
+        signs.put(0, "Aries");
+        signs.put(1, "Taurus");
+        signs.put(2, "Gemini");
+        signs.put(3, "Cancer");
+        signs.put(4, "Leo");
+        signs.put(5, "Virgo");
+        signs.put(6, "Libra");
+        signs.put(7, "Scorpio");
+        signs.put(8, "Sagittarius");
+        signs.put(9, "Capricorn");
+        signs.put(10, "Aquarius");
+        signs.put(11, "Pisces");
+        return signs;
     }
 
 }
