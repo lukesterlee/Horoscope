@@ -2,20 +2,23 @@ package lukesterlee.c4q.nyc.horoscope;
 
 import java.util.Calendar;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Random;
 
 /**
  * Created by Luke on 5/8/2015.
  */
-public class SignCalculator {
+public class Calculator {
 
 
 
     public static String doWeMatch(String mySign, String yourSign) {
-        if (mySign.equalsIgnoreCase("leo")) {
 
+        if(mySign.equalsIgnoreCase(yourSign)) {
+            return "Yes!";
         }
-        return "";
+
+        return "No :(";
     }
 
 
@@ -111,20 +114,11 @@ public class SignCalculator {
 
     public static int getPosition(String sign) {
 
-        HashMap<Integer, String> signs = new HashMap<Integer, String>();
-        signs.put(0, "Aries");
-        signs.put(1, "Taurus");
-        signs.put(2, "Gemini");
-        signs.put(3, "Cancer");
-        signs.put(4, "Leo");
-        signs.put(5, "Virgo");
-        signs.put(6, "Libra");
-        signs.put(7, "Scorpio");
-        signs.put(8, "Sagittarius");
-        signs.put(9, "Capricorn");
-        signs.put(10, "Aquarius");
-        signs.put(11, "Pisces");
-        return signs;
+        for (int position = 0; position < 12; position++) {
+            if (sign.equalsIgnoreCase(getSign(position)))
+                return position;
+        }
+        return -1;
     }
 
 }

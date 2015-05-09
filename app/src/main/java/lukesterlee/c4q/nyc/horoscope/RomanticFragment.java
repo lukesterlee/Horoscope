@@ -33,9 +33,9 @@ public class RomanticFragment extends Fragment {
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String mySign = SignCalculator.getSign(setYour.getMonth(), setYour.getDayOfMonth());
-                String hisSign = SignCalculator.getSign(setHis.getMonth(), setHis.getDayOfMonth());
-                answer.setText("Yes!");
+                String mySign = Calculator.getSign(setYour.getMonth(), setYour.getDayOfMonth());
+                String hisSign = Calculator.getSign(setHis.getMonth(), setHis.getDayOfMonth());
+                answer.setText(Calculator.doWeMatch(mySign, hisSign));
             }
         });
 

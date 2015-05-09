@@ -13,4 +13,6 @@
     <string name="action_settings">Settings</string>
 
     <color name="white">#FFFFFF</color>
+
+    <string name="banner_ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>
 </resources>

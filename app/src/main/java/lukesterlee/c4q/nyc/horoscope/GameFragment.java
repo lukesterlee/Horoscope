@@ -60,7 +60,7 @@ public class GameFragment extends Fragment {
         startButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                date = SignCalculator.getRandomDate();
+                date = Calculator.getRandomDate();
                 randomDate.setText(date);
                 gridview = (GridView) getActivity().findViewById(R.id.game_grid_view);
                 gridview.setAdapter(new ImageAdapter(getActivity()));
@@ -75,7 +75,7 @@ public class GameFragment extends Fragment {
                     public void onFinish() {
                         remainingTime.setText("Time out!");
                         answer = (TextView) getActivity().findViewById(R.id.gameAnswer);
-                        answer.setText("The answer is " + SignCalculator.getAnswer(date));
+                        answer.setText("The answer is " + Calculator.getAnswer(date));
                         startButton.setText("One more?");
                     }
                 }.start();
@@ -83,7 +83,7 @@ public class GameFragment extends Fragment {
                 gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-                        if(SignCalculator.getSign(position).equalsIgnoreCase(SignCalculator.getAnswer(date))) {
+                        if(Calculator.getSign(position).equalsIgnoreCase(Calculator.getAnswer(date))) {
                             timer.cancel();
                             remainingTime.setText("");
                             // show pop up dialog to congratualte!
