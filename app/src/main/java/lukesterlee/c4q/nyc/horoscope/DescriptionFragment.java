@@ -9,8 +9,10 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 /**
- * Created by Willee on 5/7/15.
+ * Access Code 2.1 : Unit 1 Homework
+ * Created by Luke Lee on 5/7/15.
  */
+
 public class DescriptionFragment extends Fragment {
 
     public final static String POSITION = "position";
@@ -41,6 +43,7 @@ public class DescriptionFragment extends Fragment {
 
     }
 
+    // maybe I should delete this. in this state, move to drawer and come back (test this)
     public void updateDescription(int position) {
 
         TextView description = (TextView) getActivity().findViewById(R.id.description);

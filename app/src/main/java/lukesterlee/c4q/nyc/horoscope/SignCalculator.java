@@ -1,6 +1,5 @@
 package lukesterlee.c4q.nyc.horoscope;
 
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Random;
@@ -90,6 +89,17 @@ public class SignCalculator {
         int m = month.get(monthDay[0]);
         int day = Integer.parseInt(monthDay[1]);
         return getSign(m, day);
+    }
+
+    public static int getSignPosition(String sign) {
+
+        String[] s = {"Aries", "Taurus", "Gemini", "Cancer", "Leo", "Virgo",
+                "Libra", "Scorpio", "Sagittarius", "Capricorn", "Aquarius", "Pisces"};
+
+        HashMap<String, Integer> signs = new HashMap<String, Integer>();
+        signs.put("Aries", 0);
+        signs.put("Taurus", 1);
+        return 0;
     }
 
 }

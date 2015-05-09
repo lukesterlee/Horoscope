@@ -2,18 +2,12 @@ package lukesterlee.c4q.nyc.horoscope;
 
 import android.app.Activity;
 import android.app.Fragment;
-import android.app.ListFragment;
 import android.os.Bundle;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.GridView;
-import android.widget.ListView;
-import android.widget.TextView;
-
 /**
  * Created by Willee on 5/7/15.
  */

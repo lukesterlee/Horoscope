@@ -1,8 +1,6 @@
 package lukesterlee.c4q.nyc.horoscope;
 
 import android.app.Activity;
-import android.app.DatePickerDialog;
-import android.app.DialogFragment;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,16 +10,14 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.TextView;
 
-import java.util.ArrayList;
-
 /**
  * Created by Willee on 5/7/15.
  */
 public class FindMySignFragment extends Fragment {
 
-    public static final String[] signs = {"Aries", "Taurus", "Gemini", "Cancer", "Leo", "Virgo", "Libra", "Scorpio", "Sagittarius", "Capricorn", "Aquarius", "Pisces"};
     SignFragment.OnSignSelectedListener mActivityCallBack;
 
+    View result;
     DatePicker picker;
     Button button;
     Button readMoreButton;
@@ -38,7 +34,7 @@ public class FindMySignFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        View result = inflater.inflate(R.layout.fragment_findsign, container, false);
+        result = inflater.inflate(R.layout.fragment_findsign, container, false);
 
         picker = (DatePicker) result.findViewById(R.id.datePicker);
         myDate = (TextView) result.findViewById(R.id.myDate);
@@ -54,10 +50,18 @@ public class FindMySignFragment extends Fragment {
         readMoreButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+//                DescriptionFragment description = new DescriptionFragment();
+//                Bundle argument = new Bundle();
+//                argument.putInt(DescriptionFragment.POSITION, position);
+//                description.setArguments(argument);
+//
+//                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+//
+//                transaction.replace(R.id.container, description).addToBackStack(null).commit();
                 //mActivityCallBack.onSignSelected(sign);
             }
         });
-
 
 
         return result;

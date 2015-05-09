@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,34 +11,36 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.GridView;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.Calendar;
 
 /**
- * Created by Willee on 5/7/15.
+ * Access Code 2.1 : Unit 1 Homework
+ * Created by Luke Lee on 5/7/15.
  */
 public class GameFragment extends Fragment {
 
+    // I'm not sure whether declaring variables here is a good idea or not.
     TextView randomDate;
     TextView remainingTime;
     Button startButton;
     GridView gridview;
     TextView answer;
-
+    CountDownTimer timer;
+    ArrayAdapter<String> adapter;
+    View result;
     String date;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        View result = inflater.inflate(R.layout.fragment_game, container, false);
+        result = inflater.inflate(R.layout.fragment_game, container, false);
 
         startButton = (Button) result.findViewById(R.id.gameStartButton);
         randomDate = (TextView) result.findViewById(R.id.randomDate);
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, Data.signs);
+        adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, Data.signs);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         return result;
@@ -71,7 +72,7 @@ public class GameFragment extends Fragment {
                         toast.show();
                     }
                 });
-                CountDownTimer timer = new CountDownTimer(10000, 1000) {
+                timer = new CountDownTimer(10000, 1000) {
                     @Override
                     public void onTick(long millisUntilFinished) {
                         remainingTime.setText("seconds remaining: " + millisUntilFinished / 1000);
@@ -79,20 +80,23 @@ public class GameFragment extends Fragment {
 
                     @Override
                     public void onFinish() {
-                        if (getActivity() != null) {
-                            remainingTime.setText("Time out!");
-                            answer = (TextView) getActivity().findViewById(R.id.gameAnswer);
-                            answer.setText("The answer is " + SignCalculator.getAnswer(date));
-                        }
-
+                        remainingTime.setText("Time out!");
+                        answer = (TextView) getActivity().findViewById(R.id.gameAnswer);
+                        answer.setText("The answer is " + SignCalculator.getAnswer(date));
+                        startButton.setText("One more?");
                     }
                 }.start();
             }
         });
-
-
-
-
     }
 
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        if (timer != null) {
+            timer.cancel();
+        }
+
+    }
 }

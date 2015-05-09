@@ -5,13 +5,13 @@ import java.util.ArrayList;
 /**
  * Created by Willee on 5/7/15.
  */
+
+// I'm not sure whether putting data in java class is a good idea or not.
 public class Data {
 
     public static final String[] menus = {"Signs", "Find My Sign", "Romantic Test", "Game"};
 
     public static final String[] signs = {"Aries", "Taurus", "Gemini", "Cancer", "Leo", "Virgo", "Libra", "Scorpio", "Sagittarius", "Capricorn", "Aquarius", "Pisces"};
-
-
 
     public static final String[] month = {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
 
